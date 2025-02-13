@@ -19,18 +19,4 @@ spec:
       - name: php-web
         image: $REGISTRY/$DOCKERHUB_USERNAME/$APP_NAME  # Replace with your actual image repository and tag
         ports:
-        - containerPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  namespace: $PROJECT_NAME
-  name: php-web-service
-spec:
-  selector:
-    app: php-web
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
-  type: NodePort  # You can also use LoadBalancer or ClusterIP depending on your environment
+        - containerPort: 80  # You can also use LoadBalancer or ClusterIP depending on your environment
